@@ -21,7 +21,7 @@ class MainActivity : BaseActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-
+        binding.tvFirst.text = "567890----"
     }
 
 

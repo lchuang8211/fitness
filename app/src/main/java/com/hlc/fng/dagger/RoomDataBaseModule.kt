@@ -6,6 +6,7 @@ import androidx.preference.PreferenceManager
 
 import androidx.room.Room
 import com.hlc.fng.data.RoomDataBase
+import com.hlc.fng.data.source.local.MyDataDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -39,11 +40,11 @@ object RoomDataBaseModule {
 
     // Dagger Dao 操作實體
 
-//    @JvmStatic
-//    @Singleton
-//    @Provides
-//    fun providesUserInfoDao(roomDataBase: RoomDataBase): UserInfoDao{
-//        return roomDataBase.userInfoDao()
-//    }
+    @JvmStatic
+    @Singleton
+    @Provides
+    fun providesUserInfoDao(roomDataBase: RoomDataBase): MyDataDao{
+        return roomDataBase.myDataDao()
+    }
 
 }

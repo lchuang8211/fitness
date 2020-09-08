@@ -1,10 +1,8 @@
 package com.hlc.fng.data
 
-import android.content.Context
-import android.util.Log
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.hlc.fng.data.source.local.MyDataDao
 import com.hlc.fng.data.source.local.MyData
 
 
@@ -19,7 +17,7 @@ private const val TAG = "RoomDataBase"
 abstract class RoomDataBase : RoomDatabase(){
 
     // 指定 Table 對應的操作 class Dao
-//    abstract fun userInfoDao(): UserInfoDao
+    abstract fun myDataDao(): MyDataDao
 
     // singleton 避免重複多次實體化資料庫  // how to instance ?
 //    companion object{
