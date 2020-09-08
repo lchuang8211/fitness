@@ -21,18 +21,10 @@ import javax.inject.Singleton
         ApplicationModule::class,
         RoomDataBaseModule::class,
         AndroidSupportInjectionModule::class,
-        MainActivityModule::class
-//        ,
-//        ApiModule::class,
-//        MainFragmentModule::class,
-//        SecondFragmentModule::class,
-//        FunctionNameMainActivityModule::class,
-//        FuctionMainFragmentModule::class,
-//        TabFragmentModule::class,
-//        AccountInfoModule::class,
-//        AccountInfoFragmentModule::class,
+        //以下 View 與 ViewModel 的 Module
+        MainActivityModule::class,
+        MainFragmentModule::class
 
-//        OneFragmentModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<HLCApplication> {
