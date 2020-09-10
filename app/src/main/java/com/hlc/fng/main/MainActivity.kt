@@ -3,6 +3,7 @@ package com.hlc.fng.main
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.example.fng.base.BaseActivity
 import com.hlc.fng.R
@@ -21,9 +22,14 @@ class MainActivity : BaseActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        binding.tvFirst.text = "567890----"
-
+        initHeader()
         initComponent()
+    }
+
+    private fun initHeader() {
+        viewModel.headerBackArrow.observe(this, Observer {
+            onBackPressed()
+        })
     }
 
     fun initComponent() {
@@ -32,7 +38,10 @@ class MainActivity : BaseActivity() {
         var navGraph = navController.navInflater.inflate(R.navigation.fngnavigation)
         navGraph.startDestination = R.id.start_fragment
         navController.setGraph(navGraph)
+
     }
+
+
 
 
 }

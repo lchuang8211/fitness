@@ -18,8 +18,7 @@ class AutoTextBannerRecyclerView(context: Context, attrs: AttributeSet?) : Recyc
 
     companion object {
         // 移動速度 每幾毫秒移動一次
-        private const val TIME_AUTO_BANNER: Long = 10
-
+        private const val TIME_AUTO_BANNER: Long = 20
     }
 
     private var running = false   // 標記是否正在自動跑馬燈
