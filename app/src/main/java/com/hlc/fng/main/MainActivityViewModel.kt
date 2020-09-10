@@ -8,16 +8,33 @@ import javax.inject.Inject
 
 class MainActivityViewModel @Inject constructor(
     private var myDataDao: MyDataDao
-): BaseViewModel(){
+) : BaseViewModel() {
 
     var headerTitle = MutableLiveData<String>()
     var headerIcon = MutableLiveData<String>()
     var headerBackArrow = MutableLiveData<Boolean>()
     var headerBackVisiable = MutableLiveData<Boolean>().apply { value = false }
+    var headerLeftMenu = MutableLiveData<Boolean>()
+    var headerLeftMenuVisiable = MutableLiveData<Boolean>().apply { value = false }
     var headerMenuList = MutableLiveData<String>()
 
-    fun goBackClick(){
+    var rightPopupWindowOpen = MutableLiveData<Boolean>().apply { value = false }
+    var leftPopupWindowOpen = MutableLiveData<Boolean>()
+
+    fun goBackClick() {
         headerBackArrow.value = null
+    }
+
+    fun onLeftMenuClick() {
+        headerLeftMenu.value = null
+    }
+
+    fun rightPopupWindowClick() {
+        rightPopupWindowOpen.value = null
+    }
+
+    fun leftPopupWindowClick() {
+        leftPopupWindowOpen.value = null
     }
 
 

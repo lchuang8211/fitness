@@ -84,7 +84,8 @@ class MainFragment : BaseDaggerFragment() {
 
     private fun initHeader() {
         activityViewModel.headerTitle.value = " Hello "
-        activityViewModel.headerBackVisiable.value = true
+        activityViewModel.headerBackVisiable.value = false
+        activityViewModel.headerLeftMenuVisiable.value = true
     }
 
     private fun initObserver() {
@@ -101,22 +102,15 @@ class MainFragment : BaseDaggerFragment() {
     }
 
     private fun initImageBanner() {
-        var ImageBannerList = ArrayList<ImageBanner>()
-        ImageBannerList.add(ImageBanner(imgName = "GYM", imgURL = "gym"))
-        ImageBannerList.add(ImageBanner(imgName = "YOGA", imgURL = "yoga1"))
-        ImageBannerList.add(ImageBanner(imgName = "YOGA", imgURL = "yoga2"))
-        ImageBannerList.add(ImageBanner(imgName = "YOGA", imgURL = "yoga3"))
-        ImageBannerList.add(ImageBanner(imgName = "YOGA", imgURL = "yoga4"))
-        ImageBannerList.add(ImageBanner(imgName = "YOGA", imgURL = "yoga5"))
-        ImageBannerList.add(ImageBanner(imgName = "YOGA", imgURL = "yoga6"))
-        var adapter = ImageBannerAdapter(ImageBannerList, viewModel)
+//        var adapter = ImageBannerAdapter(viewModel.ImageBannerList, viewModel)
         binding.ivYouBanner.apply {
-            this.adapter = adapter
+            this.adapter = viewModel.adapter
             this.setLoopTime(3000)
             this.setOrientation(Banner.HORIZONTAL)
             var indicator = CircleIndicator(context)
             this.setIndicator(indicator, true)
-            binding.ivYouBanner.setBannerGalleryEffect(30, 30, 50)
+            //設定畫廊模式 setBannerGalleryEffect( int 左邊顯示寬度, int 右邊顯示寬度, int 圖片間隔寬度)
+            binding.ivYouBanner.setBannerGalleryEffect(30, 30, 10)
         }
     }
 
