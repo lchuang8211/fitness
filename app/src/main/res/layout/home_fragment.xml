@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <import type="android.view.View" />
         <variable
+            name="activityViewModel"
+            type="com.hlc.fng.main.MainActivityViewModel" />
+        <variable
             name="viewModel"
-            type="com.hlc.fng.main.MainFragmentViewModel" />
+            type="com.hlc.fng.main.home.HomeFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

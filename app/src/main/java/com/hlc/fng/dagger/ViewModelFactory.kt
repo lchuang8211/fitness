@@ -1,4 +1,4 @@
-package com.example.fng.dagger
+package com.hlc.fng.dagger
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

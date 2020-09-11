@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.hlc.fng.data.source.local.imagebanner.ImageBanner
 import com.hlc.fng.databinding.LayoutImageBannerBinding
-import com.hlc.fng.main.MainFragmentViewModel
+import com.hlc.fng.main.home.HomeFragmentViewModel
 import com.hlc.fng.support.AppUtils
 
 class ImageBannerViewHolder(var binding: LayoutImageBannerBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -22,7 +22,7 @@ class ImageBannerViewHolder(var binding: LayoutImageBannerBinding) : RecyclerVie
         }
     }
 
-    fun bind(imageBanner: ImageBanner, viewModel: MainFragmentViewModel){
+    fun bind(imageBanner: ImageBanner, viewModel: HomeFragmentViewModel){
         binding.imagebanner = imageBanner
         binding.ivBannerItem.setBackgroundResource(AppUtils.getResources().getIdentifier(imageBanner.imgURL, "drawable", "com.hlc.fng"))
         binding.ivBannerItem.setOnClickListener(View.OnClickListener {

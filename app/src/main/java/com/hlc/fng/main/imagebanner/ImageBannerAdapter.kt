@@ -2,16 +2,15 @@ package com.hlc.fng.main.imagebanner
 
 import android.util.Log
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.hlc.fng.data.source.local.imagebanner.ImageBanner
-import com.hlc.fng.main.MainFragmentViewModel
+import com.hlc.fng.main.home.HomeFragmentViewModel
 import com.youth.banner.adapter.BannerAdapter
 
 private const val TAG = "ImageBannerAdapter"
 
 class ImageBannerAdapter(
     imageBanner: ArrayList<ImageBanner>,
-    var viewModel: MainFragmentViewModel
+    var viewModel: HomeFragmentViewModel
 ) : BannerAdapter<ImageBanner, ImageBannerViewHolder>(imageBanner) {
 
     var ImageList = ArrayList<ImageBanner>()

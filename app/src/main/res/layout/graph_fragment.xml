@@ -3,22 +3,18 @@
 
     <data>
         <variable
-            name="imagebanner"
-            type="com.hlc.fng.data.source.local.imagebanner.ImageBanner" />
+            name="activityViewModel"
+            type="com.hlc.fng.main.MainActivityViewModel" />
 
         <variable
             name="viewModel"
-            type="com.hlc.fng.main.home.HomeFragmentViewModel" />
+            type="com.hlc.fng.main.graph.GraphFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/iv_banner_item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

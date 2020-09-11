@@ -1,4 +1,4 @@
-package com.example.fng.dagger
+package com.hlc.fng.dagger
 
 import android.content.Context
 import android.content.SharedPreferences

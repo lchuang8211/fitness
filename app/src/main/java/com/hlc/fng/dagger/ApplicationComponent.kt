@@ -1,4 +1,4 @@
-package com.example.fng.dagger
+package com.hlc.fng.dagger
 
 import android.content.Context
 
@@ -23,7 +23,10 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         //以下 View 與 ViewModel 的 Module
         MainActivityModule::class,
-        MainFragmentModule::class
+        HomeFragmentModule::class,
+        RecordFragmentModule::class,
+        GraphFragmentModule::class,
+        PagerRecordFragmentModule::class
 
     ]
 )

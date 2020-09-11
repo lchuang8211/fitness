@@ -1,8 +1,7 @@
 package com.hlc.fng.main
 
 import androidx.lifecycle.MutableLiveData
-import com.example.fng.base.BaseViewModel
-import com.hlc.fng.data.source.local.MyData
+import com.hlc.fng.base.BaseViewModel
 import com.hlc.fng.data.source.local.MyDataDao
 import javax.inject.Inject
 
@@ -18,7 +17,11 @@ class MainActivityViewModel @Inject constructor(
     var headerLeftMenuVisiable = MutableLiveData<Boolean>().apply { value = false }
     var headerMenuList = MutableLiveData<String>()
 
-    var rightPopupWindowOpen = MutableLiveData<Boolean>().apply { value = false }
+    var botNavHome = MutableLiveData<Boolean>()
+    var botNavRecord = MutableLiveData<Boolean>()
+    var botNavGraph = MutableLiveData<Boolean>()
+
+    var rightPopupWindowOpen = MutableLiveData<Boolean>()
     var leftPopupWindowOpen = MutableLiveData<Boolean>()
 
     fun goBackClick() {
@@ -37,5 +40,16 @@ class MainActivityViewModel @Inject constructor(
         leftPopupWindowOpen.value = null
     }
 
+    fun botNavHomeClick() {
+        botNavHome.value = null
+    }
+
+    fun botNavRecordClick() {
+        botNavRecord.value = null
+    }
+
+    fun botNavGraphClick() {
+        botNavGraph.value = null
+    }
 
 }

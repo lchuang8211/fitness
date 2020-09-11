@@ -1,4 +1,4 @@
-package com.example.fng.base
+package com.hlc.fng.base
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

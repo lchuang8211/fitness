@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activityViewModel"
+            type="com.hlc.fng.main.MainActivityViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.hlc.fng.main.record.RecordFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.androidkun.xtablayout.XTabLayout
+            android:id="@+id/layout_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.androidkun.xtablayout.XTabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_record"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_tab" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

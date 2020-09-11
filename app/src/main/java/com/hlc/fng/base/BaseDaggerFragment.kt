@@ -1,4 +1,4 @@
-package com.example.fng.base
+package com.hlc.fng.base
 
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding

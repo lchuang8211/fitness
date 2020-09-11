@@ -2,7 +2,7 @@ package com.hlc.fng.main
 
 
 
-import com.example.fng.dagger.DaggerApplicationComponent
+import com.hlc.fng.dagger.DaggerApplicationComponent
 
 import com.hlc.fng.BuildConfig
 import dagger.android.AndroidInjector

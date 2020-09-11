@@ -3,9 +3,9 @@ package com.hlc.fng.main.autotextbanner
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.hlc.fng.main.MainFragmentViewModel
+import com.hlc.fng.main.home.HomeFragmentViewModel
 
-class TextBannerAdapter(val viewModel: MainFragmentViewModel) :
+class TextBannerAdapter(val viewModel: HomeFragmentViewModel) :
     ListAdapter<String, TextBannerViewHolder>(BannerDiffCallBack()) {
 
     var data = emptyList<String>()

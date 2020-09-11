@@ -1,4 +1,4 @@
-package com.example.fng.dagger
+package com.hlc.fng.dagger
 
 import android.app.Application
 import com.hlc.fng.main.HLCApplication

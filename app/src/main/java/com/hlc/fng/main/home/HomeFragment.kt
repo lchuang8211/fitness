@@ -1,4 +1,4 @@
-package com.hlc.fng.main
+package com.hlc.fng.main.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,20 +9,20 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fng.base.BaseDaggerFragment
+import com.hlc.fng.base.BaseDaggerFragment
 import com.google.android.material.appbar.AppBarLayout
-import com.hlc.fng.data.source.local.imagebanner.ImageBanner
-import com.hlc.fng.databinding.MainFragmentBinding
+import com.hlc.fng.databinding.HomeFragmentBinding
+
+import com.hlc.fng.main.MainActivityViewModel
 import com.hlc.fng.main.autotextbanner.TextBannerAdapter
 import com.hlc.fng.main.imagebanner.CircleIndicator
-import com.hlc.fng.main.imagebanner.ImageBannerAdapter
 import com.youth.banner.Banner
 
-class MainFragment : BaseDaggerFragment() {
+class HomeFragment : BaseDaggerFragment() {
 
-    override val viewModel by viewModels<MainFragmentViewModel> { viewModelFactory }
-    val activityViewModel by activityViewModels<MainActivityViewModel> { viewModelFactory }
-    override lateinit var binding: MainFragmentBinding
+    override val viewModel by viewModels<HomeFragmentViewModel> { viewModelFactory }
+    private val activityViewModel by activityViewModels<MainActivityViewModel> { viewModelFactory }
+    override lateinit var binding: HomeFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,9 +30,10 @@ class MainFragment : BaseDaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = MainFragmentBinding.inflate(inflater, null, false).apply {
-            this.viewModel = this@MainFragment.viewModel
-            this.lifecycleOwner = this@MainFragment
+        binding = HomeFragmentBinding.inflate(inflater, null, false).apply {
+            this.viewModel = this@HomeFragment.viewModel
+            this.activityViewModel = this@HomeFragment.activityViewModel
+            this.lifecycleOwner = this@HomeFragment
         }
 
         initHeader()

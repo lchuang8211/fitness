@@ -1,9 +1,7 @@
 package com.hlc.fng.main
 
-import android.content.res.Resources
-import android.graphics.Point
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.PopupWindow
@@ -13,13 +11,12 @@ import androidx.constraintlayout.widget.Constraints
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import com.example.fng.base.BaseActivity
+import androidx.navigation.findNavController
+import com.hlc.fng.base.BaseActivity
 import com.hlc.fng.R
 import com.hlc.fng.databinding.ActivityMainBinding
 import com.hlc.fng.databinding.LeftPopupWindowBinding
 import com.hlc.fng.databinding.RightPopupWindowBinding
-import timber.log.Timber
-
 
 class MainActivity : BaseActivity() {
 
@@ -43,6 +40,7 @@ class MainActivity : BaseActivity() {
         initComponent()
         initPopupWindow()
         initObserver()
+        initBottomNavigation()
     }
 
     private fun initObserver() {
@@ -72,7 +70,6 @@ class MainActivity : BaseActivity() {
          * 4.把 Layout 丟給 PopupWindow
          * 5.設定 PopupWindow 相關設定
          * */
-
 
         leftPopupWindowBinding =
             LeftPopupWindowBinding.inflate(LayoutInflater.from(this), null, false)
@@ -110,12 +107,27 @@ class MainActivity : BaseActivity() {
     }
 
     fun initComponent() {
-
-        var navController = Navigation.findNavController(this, R.id.frg_under_activity)
-        var navGraph = navController.navInflater.inflate(R.navigation.fngnavigation)
-        navGraph.startDestination = R.id.start_fragment
-        navController.setGraph(navGraph)
-
+        Navigation.findNavController(this, R.id.frg_under_activity).apply {
+            var navGraph = this.navInflater.inflate(R.navigation.fngnavigation).apply {
+                this.startDestination = R.id.start_fragment
+            }
+            this.setGraph(navGraph)
+        }
     }
+
+    @SuppressLint("ResourceType")
+    private fun initBottomNavigation() {
+        var navController = Navigation.findNavController(this, R.id.frg_under_activity)
+        viewModel.botNavHome.observe(this, Observer {
+            navController.navigate(R.id.start_fragment)
+        })
+        viewModel.botNavRecord.observe(this, Observer {
+            navController.navigate(R.id.record_fragment)
+        })
+        viewModel.botNavGraph.observe(this, Observer {
+            navController.navigate(R.id.graph_fragment)
+        })
+    }
+
 
 }
