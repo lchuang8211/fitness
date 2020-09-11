@@ -25,6 +25,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        //針對 /androidTest 的 dependency 設定
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

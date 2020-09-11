@@ -107,6 +107,7 @@ class MainActivity : BaseActivity() {
     }
 
     fun initComponent() {
+
         Navigation.findNavController(this, R.id.frg_under_activity).apply {
             var navGraph = this.navInflater.inflate(R.navigation.fngnavigation).apply {
                 this.startDestination = R.id.start_fragment
@@ -120,12 +121,15 @@ class MainActivity : BaseActivity() {
         var navController = Navigation.findNavController(this, R.id.frg_under_activity)
         viewModel.botNavHome.observe(this, Observer {
             navController.navigate(R.id.start_fragment)
+            viewModel.headerTitle.value = this.resources.getString(R.string.home_fragment)
         })
         viewModel.botNavRecord.observe(this, Observer {
             navController.navigate(R.id.record_fragment)
+            viewModel.headerTitle.value = this.resources.getString(R.string.record_fragment)
         })
         viewModel.botNavGraph.observe(this, Observer {
             navController.navigate(R.id.graph_fragment)
+            viewModel.headerTitle.value = this.resources.getString(R.string.graph_fragment)
         })
     }
 

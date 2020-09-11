@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">fng</string>
 
+    <string name="home_fragment">Ｈome</string>
+    <string name="record_fragment">運動軌跡</string>
+    <string name="graph_fragment">圖表紀錄</string>
+
     <string name="record_eat">食物</string>
     <string name="record_train">運動</string>
     <string name="record_aerobic">有氧</string>
