@@ -2,6 +2,8 @@ package com.hlc.fng.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.PopupWindow
@@ -11,12 +13,13 @@ import androidx.constraintlayout.widget.Constraints
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import com.hlc.fng.base.BaseActivity
 import com.hlc.fng.R
+import com.hlc.fng.base.BaseActivity
 import com.hlc.fng.databinding.ActivityMainBinding
 import com.hlc.fng.databinding.LeftPopupWindowBinding
 import com.hlc.fng.databinding.RightPopupWindowBinding
+import com.hlc.fng.main.record.RecordFragment
+import timber.log.Timber
 
 class MainActivity : BaseActivity() {
 
@@ -118,20 +121,49 @@ class MainActivity : BaseActivity() {
 
     @SuppressLint("ResourceType")
     private fun initBottomNavigation() {
+        // popBackStack 先清空返回的 Stack
         var navController = Navigation.findNavController(this, R.id.frg_under_activity)
         viewModel.botNavHome.observe(this, Observer {
+            navController.popBackStack()
             navController.navigate(R.id.start_fragment)
             viewModel.headerTitle.value = this.resources.getString(R.string.home_fragment)
         })
         viewModel.botNavRecord.observe(this, Observer {
+            navController.popBackStack()
             navController.navigate(R.id.record_fragment)
             viewModel.headerTitle.value = this.resources.getString(R.string.record_fragment)
         })
         viewModel.botNavGraph.observe(this, Observer {
+            navController.popBackStack()
             navController.navigate(R.id.graph_fragment)
             viewModel.headerTitle.value = this.resources.getString(R.string.graph_fragment)
         })
     }
 
+    private var doubleBackToExitPressedOnce = false
+    private val mHandler = Handler(Looper.getMainLooper())
+
+    //返回鍵
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+        Toast.makeText(baseContext, "再按一次離開程式", Toast.LENGTH_SHORT).show()
+        doubleBackToExitPressedOnce = true
+        mHandler.postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+//        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+//            super.onBackPressed()
+//            return
+//        } else {
+//            Toast.makeText(baseContext, "Tap back button in order to exit", Toast.LENGTH_SHORT).show()
+//        }
+//        mBackPressed = System.currentTimeMillis()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mHandler.removeCallbacksAndMessages(null);
+    }
 
 }

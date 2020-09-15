@@ -11,12 +11,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import com.hlc.fng.base.BaseDaggerFragment
 import com.hlc.fng.databinding.RecordFragmentBinding
+import com.hlc.fng.domain.record.RecordUseCase
 import com.hlc.fng.main.MainActivityViewModel
+import javax.inject.Inject
 
 class RecordFragment : BaseDaggerFragment() {
+
     override val viewModel by viewModels<RecordFragmentViewModel> { viewModelFactory }
     val activityViewModel by activityViewModels<MainActivityViewModel> { viewModelFactory }
     override lateinit var binding: RecordFragmentBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,11 +39,13 @@ class RecordFragment : BaseDaggerFragment() {
     }
 
     private fun initViewPager() {
+
         var adapter = RecordViewPagerAdapter(
             this.context!!,
             childFragmentManager,
             FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
         )
+
         binding.vpRecord.adapter = adapter
         binding.layoutTab.setupWithViewPager(binding.vpRecord)
     }

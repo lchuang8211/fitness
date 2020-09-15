@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.hlc.fng.R
+import com.hlc.fng.domain.record.RecordUseCase
 import com.hlc.fng.support.AppUtils
 
 class RecordViewPagerAdapter(
@@ -12,11 +13,13 @@ class RecordViewPagerAdapter(
     childFragmentManager: FragmentManager,
     behaviorResumeOnlyCurrentFragment: Int
 ) : FragmentPagerAdapter(childFragmentManager, behaviorResumeOnlyCurrentFragment) {
+
     val str = AppUtils.getResources()
+    // str.getString(R.string.record_train)  str.getString(R.string.record_aerobic)
     val TitleList: List<String> = listOf(
         str.getString(R.string.record_eat),
-        str.getString(R.string.record_train),
-        str.getString(R.string.record_aerobic)
+        "水果",
+        "翁來"
     )
 
     override fun getItem(position: Int): Fragment {
@@ -25,10 +28,10 @@ class RecordViewPagerAdapter(
             str.getString(R.string.record_eat) -> {
                 fragment = PagerRecordFragment.newInstance(1)
             }
-            str.getString(R.string.record_train) -> {
+            "水果" -> {
                 fragment = PagerRecordFragment.newInstance(2)
             }
-            str.getString(R.string.record_aerobic) -> {
+            "翁來" -> {
                 fragment = PagerRecordFragment.newInstance(3)
             }
         }

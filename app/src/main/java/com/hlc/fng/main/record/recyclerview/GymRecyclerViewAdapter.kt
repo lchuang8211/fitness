@@ -3,31 +3,40 @@ package com.hlc.fng.main.record.recyclerview
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hlc.fng.data.record.GymInfo
+import com.hlc.fng.data.source.local.MyData
 import com.hlc.fng.main.record.RecordFragmentViewModel
 
 class GymRecyclerViewAdapter : RecyclerView.Adapter<GymViewHolder>() {
 
     lateinit var viewModel: RecordFragmentViewModel
-    var Datas = emptyList<GymInfo>()
-    fun submit(data: List<GymInfo>, viewModel: RecordFragmentViewModel) {
+    var Datas = emptyList<MyData>()
+    fun submit(data: List<MyData>, viewModel: RecordFragmentViewModel) {
         this.viewModel = viewModel
-//        this.Datas = data
+        this.Datas = data
         this.Datas = listOf(
-            GymInfo(
+            MyData(
                 name = "gym",
-                floor = 1
+                imageName = "你",
+                imageFloor = "1" ,
+                imageUri = ""
             ),
-            GymInfo(
+            MyData(
                 name = "yoga1",
-                floor = 2
+                imageName = "好",
+                imageFloor = "2" ,
+                imageUri = ""
             ),
-            GymInfo(
+            MyData(
                 name = "gym",
-                floor = 3
+                imageName = "嗎",
+                imageFloor = "3" ,
+                imageUri = ""
             ),
-            GymInfo(
+            MyData(
                 name = "yoga4",
-                floor = 4
+                imageName = "他",
+                imageFloor = "4" ,
+                imageUri = ""
             )
         )
         notifyDataSetChanged()

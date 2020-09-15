@@ -9,14 +9,21 @@
 
     <fragment
         android:id="@+id/start_fragment"
-        android:name="com.hlc.fng.main.home.HomeFragment" />
+        android:name="com.hlc.fng.main.home.HomeFragment" >
+
+
+    </fragment>
 
     <fragment
         android:id="@+id/record_fragment"
-        android:name="com.hlc.fng.main.record.RecordFragment"/>
+        android:name="com.hlc.fng.main.record.RecordFragment">
+
+    </fragment>
 
     <fragment
         android:id="@+id/graph_fragment"
-        android:name="com.hlc.fng.main.graph.GraphFragment"/>
+        android:name="com.hlc.fng.main.graph.GraphFragment">
+
+    </fragment>
 
 </navigation>

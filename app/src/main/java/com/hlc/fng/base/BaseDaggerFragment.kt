@@ -22,4 +22,6 @@ abstract class BaseDaggerFragment : DaggerFragment(){
         binding.lifecycleOwner = this.viewLifecycleOwner
     }
 
+
+
 }
