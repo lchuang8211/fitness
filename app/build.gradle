@@ -25,6 +25,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        // methods > 65536
+        multiDexEnabled true
+
         //針對 /androidTest 的 dependency 設定
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -52,6 +55,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // methods > 65536
+    implementation 'com.android.support:multidex:1.0.3'
 
     /*** 3rd lib ***/
     //Circle View 圓框圖片
@@ -120,4 +126,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
 
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    //Glide 擴充
+    implementation 'jp.wasabeef:glide-transformations:4.2.0'
 }

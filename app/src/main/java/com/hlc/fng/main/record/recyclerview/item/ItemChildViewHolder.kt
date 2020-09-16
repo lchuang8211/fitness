@@ -20,7 +20,7 @@ class ItemChildViewHolder(val binding: RvLayoutRecordItemChildBinding) : Recycle
     //顯示資料的規則/邏輯
     fun bind(item: ItemParent.ItemChild, viewModel: RecordFragmentViewModel) {
         binding.viewModel = viewModel
-        binding.btnItem.text = item.cid
+        binding.tvItem.text = item.cid
         Timber.i("ItemChild cid: ${item.cid}")
     }
 }
